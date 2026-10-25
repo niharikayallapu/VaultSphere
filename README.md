@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VaultSphere — Secure Document Workspace
 
 A Spring Boot 3 / Java 17 project with separate Admin and User experiences, server-side role authorization, BCrypt password hashing, H2 file database, and local document storage.
@@ -38,3 +39,7 @@ If Maven is not installed, use VS Code's Java Extension Pack and install Maven, 
 - Configure HTTPS, backup, rate limiting, and audit logging before real-world use. Do not upload confidential or sensitive files to an unreviewed deployment.
 - The current registration endpoint always assigns `USER`; never add a public role selector.
 - Spring Security protects routes server-side. Users cannot access other users' documents by changing an ID; ownership is checked before download/delete.
+=======
+# VaultSphere
+Secure document management application built with Java Spring Boot and Spring Security
+>>>>>>> 5a16de24677feb24a8eb4a9ffaa05cd727529dbc
