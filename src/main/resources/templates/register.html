@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create account · VaultSphere</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="auth-page">
+
+<div class="auth-shell">
+
+    <aside class="auth-art">
+        <div class="brand">
+            <span class="brand-mark">V</span>
+            <span>VaultSphere</span>
+        </div>
+
+        <div class="art-copy">
+            <p class="eyebrow">A BETTER WAY TO ORGANIZE</p>
+            <h1>Your files.<br><em>Your space.</em></h1>
+            <p>Create your personal workspace and keep your documents together.</p>
+        </div>
+
+        <div class="art-footer">SIMPLE · PRIVATE · ORGANIZED</div>
+    </aside>
+
+    <main class="auth-form-wrap">
+
+        <form class="auth-form"
+              th:action="@{/register}"
+              th:object="${user}"
+              method="post">
+
+            <!-- Mobile branding -->
+            <div class="mobile-brand brand">
+                <span class="brand-mark">V</span>
+                <span>VaultSphere</span>
+            </div>
+
+            <p class="eyebrow">GET STARTED</p>
+            <h2>Create your account</h2>
+            <p class="muted">A few details and your vault is ready.</p>
+
+            <!-- Registration status -->
+            <div class="notice" th:if="${passwordError}"
+                 th:text="${passwordError}"></div>
+
+            <div class="notice"
+                 th:if="${param.error}">
+                Registration could not be completed. Please check your details.
+            </div>
+
+            <!-- Username -->
+            <label for="username">Username</label>
+            <input id="username"
+                   type="text"
+                   th:field="*{username}"
+                   placeholder="Choose a username"
+                   autocomplete="username"
+                   required>
+
+            <small class="field-error"
+                   th:errors="*{username}"></small>
+
+            <!-- Email -->
+            <label for="email">Email address</label>
+            <input id="email"
+                   type="email"
+                   th:field="*{email}"
+                   placeholder="you@example.com"
+                   autocomplete="email"
+                   required>
+
+            <small class="field-error"
+                   th:errors="*{email}"></small>
+
+            <!-- Password -->
+            <label for="password">Password</label>
+            <input id="password"
+                   type="password"
+                   th:field="*{password}"
+                   placeholder="At least 8 characters"
+                   minlength="8"
+                   autocomplete="new-password"
+                   required>
+
+            <small class="field-error"
+                   th:errors="*{password}"></small>
+
+            <!-- Confirm password -->
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword"
+                   type="password"
+                   name="confirmPassword"
+                   placeholder="Enter password again"
+                   autocomplete="new-password"
+                   required>
+
+            <!-- Submit -->
+            <button class="btn primary full" type="submit">
+                Create account <span>→</span>
+            </button>
+
+            <p class="form-bottom">
+                Already registered?
+                <a th:href="@{/login}">Sign in</a>
+            </p>
+
+        </form>
+
+    </main>
+
+</div>
+
+</body>
+</html>

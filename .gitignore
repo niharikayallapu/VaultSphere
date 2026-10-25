@@ -1,0 +1,19 @@
+
+target/
+.idea/
+.vscode/
+*.iml
+
+# Local database files
+data/
+*.mv.db
+*.trace.db
+
+# Uploaded user documents
+uploads/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+application-local.properties
